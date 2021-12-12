@@ -19,8 +19,8 @@ Listar todas as pressões
     cd ~
     git clone https://github.com/paulosell/EEL510265
     cd EEL510265
-    chmod +x install.sh
-    ./install.sh
+    make install
+    ./main
 ```
 
 ## Diagrama de classes UML
