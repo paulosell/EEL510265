@@ -25,3 +25,4 @@ Listar todas as pressões
 
 ## Diagrama de classes UML
 
+![fig](fig/uml_class_diagram.pdf)

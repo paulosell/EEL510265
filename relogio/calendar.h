@@ -12,7 +12,7 @@ public:
     void setCalendar(int m, int d,
                      int y);
     void readCalendar();
-    void advance();
+   
 };
 
 #endif

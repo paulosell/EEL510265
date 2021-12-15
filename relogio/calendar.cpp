@@ -13,20 +13,3 @@ void Calendar::readCalendar(){
     cout<< this->day << "/" << this->mo << "/" << this->yr;
 }
 
-void Calendar::advance(){
-    this->day++;
-    if (this->day < 31){
-        return;
-    }
-
-    if(this->day == 31 && this->mo < 12){
-        this->mo++;
-        this->day = 1;
-    }
-
-    if(this->mo == 12){
-        this->mo = 1;
-        this->day = 1;
-        this->yr++;
-    }
-}
