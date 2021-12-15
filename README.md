@@ -25,4 +25,4 @@ Listar todas as pressões
 
 ## Diagrama de classes UML
 
-![fig](fig/uml_class_diagram.pdf)
+O diagrama de classes UML deste projeto pode ser encontrado [aqui](fig/uml_class_diagram.pdf).
