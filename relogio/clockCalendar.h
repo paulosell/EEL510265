@@ -11,7 +11,7 @@ class ClockCalendar : public Clock, public Calendar
 {
 public:
     ClockCalendar(){};
-    ClockCalendar(int mt, int d, int y, int h, int m, int s, int pm, char *time);
+    ClockCalendar(int mt, int d, int y, int h, int m, int s, int pm);
 
     void read();
 
