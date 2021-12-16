@@ -25,10 +25,10 @@ int main(){
     cin >> op;
     switch(op) {
         case 1:
-            ct.adicionarTemperatura();
+            ct.adicionar();
             break;
         case 2:
-            ct.excluirTemperatura();
+            ct.excluir();
             break;
         case 3:
             ct.consultar();
@@ -37,10 +37,10 @@ int main(){
             ct.listar();
             break;
         case 5:
-            cp.adicionarPressao();
+            cp.adicionar();
             break;
         case 6:
-            cp.excluirPressao();
+            cp.excluir();
             break;
         case 7:
             cp.consultar();

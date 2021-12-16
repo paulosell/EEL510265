@@ -4,7 +4,7 @@ using namespace std;
 
 CadastroTemperatura::CadastroTemperatura(){
 
-    for(int i =0; i< MAX_SENSOR_TEMP; i++){
+    for(int i =0; i< MAX_SENSOR; i++){
         this->valido[i] = false;
     }
 
@@ -12,7 +12,7 @@ CadastroTemperatura::CadastroTemperatura(){
 }
 
 
-void CadastroTemperatura::adicionarTemperatura(){
+void CadastroTemperatura::adicionar(){
 
     if(this->num_leituras >= 10){
         cout<<endl<<"Limite de sensores de temperatura atingido"<<endl;
@@ -23,7 +23,7 @@ void CadastroTemperatura::adicionarTemperatura(){
 
     cout << endl << "Digite o identificador único do sensor de temperatura" << endl;
     cin >> serie;
-    for(int i=0; i < MAX_SENSOR_TEMP;i++){
+    for(int i=0; i < MAX_SENSOR;i++){
         if(this->valido[i] == true && this->vTemperatura[i].getIdTemperatura() == serie){
             cout << endl << "O identificador deve ser diferente para cada sensor de temperatura" << endl;
             return;
@@ -31,7 +31,7 @@ void CadastroTemperatura::adicionarTemperatura(){
     }
 
     
-    for(int i=0; i < MAX_SENSOR_TEMP;i++){
+    for(int i=0; i < MAX_SENSOR;i++){
         if(this->valido[i] == false){
             Temperatura t;
             t.setIdTemperatura(serie);
@@ -47,7 +47,7 @@ void CadastroTemperatura::adicionarTemperatura(){
 }
 
 
-void CadastroTemperatura::excluirTemperatura(){
+void CadastroTemperatura::excluir(){
     if(this->num_leituras == 0){
         cout << endl<< "Nenhum sensor adicionado"<<endl;
         return;
@@ -58,10 +58,11 @@ void CadastroTemperatura::excluirTemperatura(){
     int serie;
     cin >> serie;
 
-    for(int i = 0; i < MAX_SENSOR_TEMP; i++){
+    for(int i = 0; i < MAX_SENSOR; i++){
         if(this->vTemperatura[i].getIdTemperatura() == serie){
             this->valido[i] = false;
             this->num_leituras--;
+            cout << endl << "Excluído com sucesso" << endl;
             return;
         }
     }
@@ -82,7 +83,7 @@ void CadastroTemperatura::consultar(){
     int serie;
     cin >> serie;
 
-    for(int i = 0; i < MAX_SENSOR_TEMP; i++){
+    for(int i = 0; i < MAX_SENSOR; i++){
         if(this->vTemperatura[i].getIdTemperatura() == serie){
             this->vTemperatura[i].getLeitura();
             return;
@@ -100,7 +101,7 @@ if(this->num_leituras == 0){
         return;
     }
 
-    for(int i = 0; i < MAX_SENSOR_TEMP; i++){
+    for(int i = 0; i < MAX_SENSOR; i++){
         if(this->valido[i]==true){
             this->vTemperatura[i].getLeitura();
            

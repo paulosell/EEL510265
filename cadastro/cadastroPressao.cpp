@@ -4,7 +4,7 @@ using namespace std;
 
 CadastroPressao::CadastroPressao(){
 
-    for(int i =0; i< MAX_SENSOR_PRESS; i++){
+    for(int i =0; i< MAX_SENSOR; i++){
         this->valido[i] = false;
     }
 
@@ -12,7 +12,7 @@ CadastroPressao::CadastroPressao(){
 }
 
 
-void CadastroPressao::adicionarPressao(){
+void CadastroPressao::adicionar(){
 
     if(this->num_leituras >= 10){
         cout<<endl<<"Limite de sensores de pressao atingido"<<endl;
@@ -23,7 +23,7 @@ void CadastroPressao::adicionarPressao(){
 
     cout << endl << "Digite o identificador único do sensor de pressao" << endl;
     cin >> serie;
-    for(int i=0; i < MAX_SENSOR_PRESS;i++){
+    for(int i=0; i < MAX_SENSOR;i++){
         if(this->valido[i] == true && this->vPressao[i].getIdPressao() == serie){
             cout << endl << "O identificador deve ser diferente para cada sensor de pressao" << endl;
             return;
@@ -31,7 +31,7 @@ void CadastroPressao::adicionarPressao(){
     }
 
     
-    for(int i=0; i < MAX_SENSOR_PRESS;i++){
+    for(int i=0; i < MAX_SENSOR;i++){
         if(this->valido[i] == false){
             Pressao t;
             t.setIdPressao(serie);
@@ -47,7 +47,7 @@ void CadastroPressao::adicionarPressao(){
 }
 
 
-void CadastroPressao::excluirPressao(){
+void CadastroPressao::excluir(){
     if(this->num_leituras == 0){
         cout << endl<< "Nenhum sensor adicionado"<<endl;
         return;
@@ -58,10 +58,11 @@ void CadastroPressao::excluirPressao(){
     int serie;
     cin >> serie;
 
-    for(int i = 0; i < MAX_SENSOR_PRESS; i++){
+    for(int i = 0; i < MAX_SENSOR; i++){
         if(this->vPressao[i].getIdPressao() == serie){
             this->valido[i] = false;
             this->num_leituras--;
+            cout << endl << "Excluído com sucesso" << endl;
             return;
         }
     }
@@ -82,7 +83,7 @@ void CadastroPressao::consultar(){
     int serie;
     cin >> serie;
 
-    for(int i = 0; i < MAX_SENSOR_PRESS; i++){
+    for(int i = 0; i < MAX_SENSOR; i++){
         if(this->vPressao[i].getIdPressao() == serie){
             this->vPressao[i].getLeitura();
             return;
@@ -100,7 +101,7 @@ if(this->num_leituras == 0){
         return;
     }
 
-    for(int i = 0; i < MAX_SENSOR_PRESS; i++){
+    for(int i = 0; i < MAX_SENSOR; i++){
         if(this->valido[i]==true){
             this->vPressao[i].getLeitura();
            

@@ -1,10 +1,10 @@
 #ifndef CADASTRO_CADASTROTEMPERATURA_H
 #define CADASTRO_CADASTROTEMPERATURA_H
 
+#include "cadastro.h"
 #include "../sensor/sensores/temperatura.h"
-#define MAX_SENSOR_TEMP 10
 
-class CadastroTemperatura
+class CadastroTemperatura : public Cadastro
 {
 public:
     /**
@@ -16,12 +16,12 @@ public:
     /**
      * @brief adiciona um sensor de temperatura no vetor de sensores
      */
-    void adicionarTemperatura();
+    void adicionar();
 
     /**
      * @brief exlui um sensor de temperatura do vetor de sensores
      */
-    void excluirTemperatura();
+    void excluir();
 
     /**
      * @brief consulta um sensor de pressao específico no vetor de sensores
@@ -34,8 +34,8 @@ public:
     void listar();
 
 private:
-    Temperatura vTemperatura[MAX_SENSOR_TEMP];
-    bool valido[MAX_SENSOR_TEMP];
+    Temperatura vTemperatura[MAX_SENSOR];
+    bool valido[MAX_SENSOR];
     int num_leituras;
 };
 

@@ -1,10 +1,10 @@
 #ifndef CADASTRO_CADASTROPRESSAO_H
 #define CADASTRO_CADASTROPRESSAO_H
 
+#include "cadastro.h"
 #include "../sensor/sensores/pressao.h"
-#define MAX_SENSOR_PRESS 10
 
-class CadastroPressao
+class CadastroPressao : public Cadastro
 {
 public:
     /**
@@ -16,12 +16,12 @@ public:
     /**
      * @brief adiciona um sensor de pressao no vetor de sensores
      */
-    void adicionarPressao();
+    void adicionar();
 
     /**
      * @brief exlui um sensor de pressao do vetor de sensores
      */
-    void excluirPressao();
+    void excluir();
 
     /**
      * @brief consulta um sensor de pressao específico no vetor de sensores
@@ -34,8 +34,8 @@ public:
     void listar();
 
 private:
-    Pressao vPressao[MAX_SENSOR_PRESS];
-    bool valido[MAX_SENSOR_PRESS];
+    Pressao vPressao[MAX_SENSOR];
+    bool valido[MAX_SENSOR];
     int num_leituras;
 };
 
